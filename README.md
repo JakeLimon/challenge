@@ -1,6 +1,7 @@
 Challenge
 ============================================
-This a challenge using technologies like 
+
+This a challenge that use technologies like 
 * Spring boot 2.6.6 
 * Git 2.35.1 windows
 * Gradle 7.4.1
