@@ -18,10 +18,34 @@ repositories {
 	mavenCentral()
 }
 
+/*
+* En gradle podemos indicar nuestras dependencias para trabajar con ellas, solo que tenemos diferentes alcances (scope)
+* y dependiendo a ello es en el momento que se van a ejecutar, por lo cual tenemos:
+* 	1.- implementation -> Gradle agrega la dependencia a la ruta de clase de la compilación y la empaqueta en el resultado, el uso de esta
+* 						  configuración de puede reducir el tiempo de compilación ya que disminuye la cantidad de módulos que el sistema debe
+* 					      compilar.
+*	2.- api			   -> Gradle agrega la dependencia a la ruta de clase y al resultado de la compilación se le indica a Gradle que el módulo
+* 						  quiere exportar de forma transitiva esa dependencia a otros módulos, de manera que esté disponible para ellos tanto
+* 						  en el tiempo de ejecución como en el de compilación.
+*
+* 	3.- compileOnly    -> Gradle solo agrega la dependencia a la ruta de clase de la compilación (pero no al resultado de la compilación),
+* 						  lo que resulta útil cuando creas un módulo y necesitas la dependencia durante la compilación.
+*                         Sin embargo, tenerla presente durante el tiempo de ejecución es opcional.
+*
+*  4.- runtimeOnly     -> Gradle solo agrega la dependencia al resultado de la compilación para usar durante el tiempo de ejecución.
+* 						  Es decir, esta no se agrega a la ruta de clase de compilación.
+* */
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compileOnly 'org.projectlombok:lombok'
+
+	// https://mvnrepository.com/artifact/org.projectlombok/lombok
+	compileOnly 'org.projectlombok:lombok:1.18.22'
+
+	// https://mvnrepository.com/artifact/commons-io/commons-io
+	implementation 'commons-io:commons-io:2.11.0'
+
 	runtimeOnly 'org.postgresql:postgresql'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
