@@ -14,7 +14,9 @@ public class Reservation {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private Integer id;
-    // private Room room;
+
+    @OneToMany( mappedBy = "reservation")
+    private List<Room> rooms;
 
     @OneToMany( mappedBy = "reservation")
     private List<Guest> guests;
