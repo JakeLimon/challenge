@@ -22,7 +22,7 @@ public class Room {
     @JoinColumn( name = "room_type", referencedColumnName = "id")
     private RoomType roomType;
 
-//    @ManyToOne
-//    private Hotel hotel;
+    @ManyToOne
+    private Hotel hotel;
 
 }

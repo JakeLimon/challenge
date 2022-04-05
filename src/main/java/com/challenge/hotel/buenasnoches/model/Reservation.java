@@ -15,7 +15,10 @@ public class Reservation {
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private Integer id;
     // private Room room;
-//    private List<Guest> guests;
+
+    @OneToMany( mappedBy = "reservation")
+    private List<Guest> guests;
+
     @Column( name = "start_date" )
     private LocalDate startDate;
     @Column( name = "end_date" )

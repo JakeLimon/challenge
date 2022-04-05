@@ -20,9 +20,11 @@ public class Guest {
     @Column( name = "email")
     private String email;
 
-//    @OneToOne
-//    @JoinColumn( name = "guest_type", referencedColumnName = "number")
-//    private GuestType guestType;
+    @OneToOne
+    @JoinColumn( name = "guest_type", referencedColumnName = "number")
+    private GuestType guestType;
 
+    @ManyToOne
+    private Reservation reservation;
 
 }
