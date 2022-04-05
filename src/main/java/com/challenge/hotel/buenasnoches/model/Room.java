@@ -17,7 +17,12 @@ public class Room {
     private Integer floor;
     @Column( name = "max_guest" )
     private Integer maxGuest;
-    // private RoomType roomType;
-    // private Hotel hotel;
+
+    @OneToOne
+    @JoinColumn( name = "room_type", referencedColumnName = "id")
+    private RoomType roomType;
+
+//    @ManyToOne
+//    private Hotel hotel;
 
 }

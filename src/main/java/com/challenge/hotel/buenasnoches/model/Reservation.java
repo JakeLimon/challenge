@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @Entity
@@ -14,7 +15,7 @@ public class Reservation {
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private Integer id;
     // private Room room;
-    // private Guest guest;
+//    private List<Guest> guests;
     @Column( name = "start_date" )
     private LocalDate startDate;
     @Column( name = "end_date" )

@@ -19,7 +19,10 @@ public class Guest {
     private String lastName;
     @Column( name = "email")
     private String email;
-    //@Column( mame = "guest_type" )
-    //private GuestType guestType;
+
+//    @OneToOne
+//    @JoinColumn( name = "guest_type", referencedColumnName = "number")
+//    private GuestType guestType;
+
 
 }
