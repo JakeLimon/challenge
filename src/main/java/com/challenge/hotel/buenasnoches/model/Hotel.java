@@ -1,9 +1,12 @@
 package com.challenge.hotel.buenasnoches.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
 @Entity
 @Table( name = "hotel" )
+@Data
 public class Hotel {
 
     @Id
