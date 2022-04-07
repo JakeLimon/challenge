@@ -8,4 +8,6 @@ public interface IHotelService {
     HotelResponse getHotels();
     Hotel postHotel(Hotel hotel);
     void deleteHotel(Integer id);
+    Hotel updateHotel(Integer id, Hotel hotel);
+
 }

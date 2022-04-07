@@ -32,4 +32,10 @@ public class HotelController {
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Hotel> putHotel(@PathVariable("id") Integer id, @RequestBody Hotel hotel ){
+        return new ResponseEntity<Hotel>(hotelService.updateHotel(id,hotel), HttpStatus.CREATED);
+    }
+
+
 }

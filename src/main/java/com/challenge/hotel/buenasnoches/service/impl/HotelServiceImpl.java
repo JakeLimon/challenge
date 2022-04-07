@@ -41,6 +41,15 @@ public class HotelServiceImpl implements IHotelService {
         hotelRepository.delete(hotelToDelete);
     }
 
+    @Override
+    public Hotel updateHotel(Integer id, Hotel hotel) {
+        Optional<Hotel> response = hotelRepository.findById(id);
+        if( response.isPresent() )
+            return hotelRepository.save(hotel);
+        else
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+    }
+
     private List<Hotel> getAllHotel(){
        log.info("Getting Hotels list....");
        return hotelRepository.findAll();
