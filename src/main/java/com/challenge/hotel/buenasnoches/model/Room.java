@@ -1,13 +1,15 @@
 package com.challenge.hotel.buenasnoches.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Data
 @Entity
 @Table( name = "room" )
-public class Room {
+public class Room implements Serializable {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
@@ -18,14 +20,17 @@ public class Room {
     @Column( name = "max_guest" )
     private Integer maxGuest;
 
+    @JsonIgnore
     @OneToOne
     @JoinColumn( name = "room_type", referencedColumnName = "id")
     private RoomType roomType;
 
-    @ManyToOne
+    @JsonIgnore
+    @ManyToOne( fetch = FetchType.LAZY )
     private Hotel hotel;
 
-    @ManyToOne
+    @JsonIgnore
+    @ManyToOne( fetch = FetchType.LAZY )
     private Reservation reservation;
 
 }

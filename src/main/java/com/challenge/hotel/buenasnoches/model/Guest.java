@@ -3,11 +3,12 @@ package com.challenge.hotel.buenasnoches.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Data
 @Table( name = "guest")
-public class Guest {
+public class Guest implements Serializable {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )

@@ -3,12 +3,13 @@ package com.challenge.hotel.buenasnoches.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Data
 @Entity
 @Table( name = "bitacora_reservaciones")
-public class BitacoraReservaciones {
+public class BitacoraReservaciones implements Serializable {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
