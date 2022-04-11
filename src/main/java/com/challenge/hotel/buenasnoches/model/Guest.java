@@ -21,8 +21,8 @@ public class Guest implements Serializable {
     @Column( name = "email")
     private String email;
 
-    @OneToOne
-    @JoinColumn( name = "guest_type", referencedColumnName = "number")
+    @OneToOne( cascade = CascadeType.ALL )
+    @JoinColumn( name = "guest_type", referencedColumnName = "id")
     private GuestType guestType;
 
     @ManyToOne

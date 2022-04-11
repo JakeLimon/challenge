@@ -12,7 +12,7 @@ public class GuestType implements Serializable {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
-    private Integer number;
+    private Integer id;
     private String name;
 
 }
