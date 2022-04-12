@@ -1,5 +1,6 @@
 package com.challenge.hotel.buenasnoches.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -25,6 +26,7 @@ public class Guest implements Serializable {
     @JoinColumn( name = "guest_type", referencedColumnName = "id")
     private GuestType guestType;
 
+    @JsonIgnore
     @ManyToOne
     private Reservation reservation;
 

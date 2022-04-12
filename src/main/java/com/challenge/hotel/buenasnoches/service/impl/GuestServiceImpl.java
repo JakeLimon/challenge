@@ -1,7 +1,10 @@
 package com.challenge.hotel.buenasnoches.service.impl;
 
 import com.challenge.hotel.buenasnoches.dto.GuestResponse;
+import com.challenge.hotel.buenasnoches.enums.EGuestType;
 import com.challenge.hotel.buenasnoches.model.Guest;
+import com.challenge.hotel.buenasnoches.model.GuestType;
+import com.challenge.hotel.buenasnoches.model.Reservation;
 import com.challenge.hotel.buenasnoches.repository.GuestRepository;
 import com.challenge.hotel.buenasnoches.service.IGuestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +30,8 @@ public class GuestServiceImpl implements IGuestService {
 
     @Override
     public Guest addGuest(Guest guest) {
-        System.out.println(guest.toString());
+        if( guest.getId() == null )
+            guest.setGuestType(new GuestType(null, EGuestType.TURISTA));
         return guestRepository.save(guest);
     }
 
@@ -48,5 +52,6 @@ public class GuestServiceImpl implements IGuestService {
         else
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
+
 
 }
